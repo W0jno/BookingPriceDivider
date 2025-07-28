@@ -18,14 +18,15 @@ document
     }
     const newDiv = document.createElement("div");
     newDiv.className = "price-per-guest";
-    newDiv.textContent =
+    newDiv.innerHTML =
       "Price per guest: " +
       (
         parseFloat(totalPriceElement.textContent.replace(" ", "")) /
         numberOfGuests
       ).toFixed(2) +
       currency +
-      "\n Price per guest per night: " +
+      "<br>" +
+      "Price per guest per night: " +
       (
         parseFloat(totalPriceElement.textContent.replace(" ", "")) /
         numberOfGuests /
