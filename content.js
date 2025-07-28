@@ -12,6 +12,7 @@ document
     const totalPriceElement = el.querySelector(
       '[data-testid="price-and-discounted-price"]'
     );
+    const currency = totalPriceElement.textContent.trim().match(/[^\d\s,.]+/g);
     if (el.querySelector(".price-per-guest")) {
       el.querySelector(".price-per-guest").remove();
     }
@@ -23,13 +24,13 @@ document
         parseFloat(totalPriceElement.textContent.replace(" ", "")) /
         numberOfGuests
       ).toFixed(2) +
-      " PLN " +
+      currency +
       "\n Price per guest per night: " +
       (
         parseFloat(totalPriceElement.textContent.replace(" ", "")) /
         numberOfGuests /
         diffDays
       ).toFixed(2) +
-      " PLN";
+      currency;
     el.appendChild(newDiv);
   });
